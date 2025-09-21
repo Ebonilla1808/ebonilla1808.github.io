@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Virtudes de KENIA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fffde7, #fff8e1);
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #fbc02d;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    p.subtitle {
+      font-size: 1.3em;
+      color: #795548;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .virtue-card {
+      background: #fffde7;
+      border-left: 8px solid #fbc02d;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 25px 30px;
+      max-width: 600px;
+      margin: 20px auto;
+      transition: transform 0.3s ease;
+    }
+
+    .virtue-card:hover {
+      transform: scale(1.02);
+    }
+
+    .letter {
+      font-size: 2em;
+      font-weight: bold;
+      color: #fbc02d;
+    }
+
+    .virtue {
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-top: 5px;
+      color: #333;
+    }
+
+    .description {
+      font-size: 1em;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      margin: 50px 20px 20px;
+      font-size: 0.9em;
+      color: #888;
+    }
+
+  /* Girasoles animados más rápidos y constantes */
+  .sunflower {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Sunflower_sky_backdrop.jpg/120px-Sunflower_sky_backdrop.jpg');
+    background-size: cover;
+    border-radius: 50%;
+    animation: float 6s linear infinite;
+    opacity: 0.6;
+  }
+
+  .sunflower:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+  .sunflower:nth-child(2) { top: 30%; left: 80%; animation-delay: 1s; }
+  .sunflower:nth-child(3) { top: 60%; left: 10%; animation-delay: 2s; }
+  .sunflower:nth-child(4) { top: 80%; left: 70%; animation-delay: 3s; }
+
+  @keyframes float {
+    0%   { transform: translateY(0px) rotate(0deg); }
+    25%  { transform: translateY(-15px) rotate(5deg); }
+    50%  { transform: translateY(0px) rotate(0deg); }
+    75%  { transform: translateY(15px) rotate(-5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+  }
+
+  </style>
+</head>
+<body ondblclick="goToFlowers()">
+  <div class="sunflower"></div>
+  <div class="sunflower"></div>
+  <div class="sunflower"></div>
+  <div class="sunflower"></div>
+
+  <h1>¿Por qué mereces más?</h1>
+  <p class="subtitle">En cada letra de tu nombre hay una cualidad que te hace especial</p>
+
+  <div class="virtue-card">
+    <div class="letter">K</div>
+    <div class="virtue">Kindness – Amabilidad</div>
+    <div class="description">Capacidad de brindar ternura y comprensión, incluso en momentos difíciles.</div>
+  </div>
+
+  <div class="virtue-card">
+    <div class="letter">E</div>
+    <div class="virtue">Empatía</div>
+    <div class="description">Sensibilidad para conectar con las emociones ajenas, ofreciendo apoyo genuino y sincero (aunque te applique un drenaje emocional).</div>
+  </div>
+
+  <div class="virtue-card">
+    <div class="letter">N</div>
+    <div class="virtue">Nobleza</div>
+    <div class="description">Grandeza de espíritu,  rectitud en sus acciones, con mucha actitud de servicio incluso cuando el cansancio esta acumulado.</div>
+  </div>
+
+  <div class="virtue-card">
+    <div class="letter">I</div>
+    <div class="virtue">Inteligencia</div>
+    <div class="description">Agudeza mental, curiosidad constante y sabiduría emocional. No hace falta explicar mas en este punto jejejej</div>
+  </div>
+
+  <div class="virtue-card">
+    <div class="letter">A</div>
+    <div class="virtue">Autenticidad</div>
+    <div class="description">Valentía para ser uno mismo, me encanta tu forma de ser, tus outfits, hasta tu manera de caminar que te hacen reconocible en cualquier lugar :)</div>
+  </div>
+
+  <footer>Diseñado con cariño para resaltar la belleza interior de la Bestia, digo mi Bestie KENIA 🌻</footer>
+  <footer>(Vuelve a dar doble clic o toca dos veces)</footer>
+</body>
+
+  <script>
+    function goToFlowers() {
+      window.location.href = "flores-amarillas/index.html"; // aquí pones la ruta de tu página con las flores
+    }
+  </script>
+</html>

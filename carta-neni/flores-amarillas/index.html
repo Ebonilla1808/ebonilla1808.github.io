@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Flores Amarillas</title>
+</head>
+<body ondblclick="mostrarPosdata()">
+  <div class="container" id="mensaje">
+    <h1>Tal vez no sean reales, pero no te quedas sin tus flores amarillas</h1>
+    <h1>Te quiero un montón Bestie♥</h1>
+    <h1>Y creéme que mereces muchisimo más que esto</h1>
+    <div class="flower-container">
+      <!-- Las flores se agregarán y eliminarán aquí mediante JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    function mostrarPosdata() {
+      const contenedor = document.getElementById("mensaje");
+      contenedor.innerHTML = `
+        <h1>Posdata</h1>
+        <h2>Me rehuso a esperar hasta el 21 para entregarte esto,</h2>
+        <h2>así que disfruta esta noche este regalo.</h2>
+        <h2>Espero que te guste.</h2>
+        <div class="flower-container">
+      <!-- Las flores se agregarán y eliminarán aquí mediante JavaScript -->
+    </div>
+      `;
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

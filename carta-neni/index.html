@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Amarilla</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+    * {margin: 0; padding: 0;}
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background: #fff9d9;
+      font-family: 'Pangolin', cursive;
+      font-size: 1vmin;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      position: relative;
+      top: 0vmin;
+      cursor: pointer;
+    }
+
+    .envelope {
+      position: relative;
+      background: #ffd84d;
+      height: 30vmin;
+      width: 48vmin;
+    }
+
+    .card {
+      position: absolute;
+      background: white;
+      height: 30vmin;
+      width: 45vmin;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      left: 1.5vmin;
+      top: 0vmin;
+      animation: slide-rev 0.2s ease-out;
+    }
+
+    .message {
+      position: absolute;
+      top: 5vmin;
+      color: #665500;
+      text-align: center;
+    }
+
+    /* Sobre amarillo */
+    .cover {
+      position: absolute;
+      height: 0;
+      width: 0;
+      border-bottom: 15vmin solid #ffe27a;
+      border-left: 24vmin solid transparent;
+      border-right: 24vmin solid transparent;
+      top: 15vmin;
+      z-index: 3;
+    }
+
+    .cover::after {
+      position: absolute;
+      content: '';
+      border-left: 24.5vmin solid #ffd54f;
+      border-bottom: 15vmin solid transparent;
+      border-top: 15vmin solid transparent;
+      top: -15vmin;
+      left: -24vmin;
+    }
+
+    .cover::before {
+      position: absolute;
+      content: '';
+      border-right: 24.5vmin solid #ffeb99;
+      border-bottom: 15vmin solid transparent;
+      border-top: 15vmin solid transparent;
+      top: -15vmin;
+      left: -0.5vmin;
+    }
+
+    .lid {
+      position: absolute;
+      height: 0;
+      width: 0;
+      border-top: 15vmin solid #fbc02d;
+      border-left: 24vmin solid transparent;
+      border-right: 24vmin solid transparent;
+      top: 0;
+      transform-origin: top;
+      animation: open-rev 2s;
+    }
+
+    .container:hover .lid {
+      animation: open 0.5s;
+      animation-fill-mode: forwards;
+    }
+
+    .container:hover .card {
+      animation: slide 0.2s;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+    }
+
+    .shadow {
+      position: relative;
+      top: 3vmin;
+      border-radius: 50%;
+      opacity: 0.7;
+      height: 2vmin;
+      width: 48vmin;
+      background: #d6b93a;
+    }
+
+    @keyframes open {
+      100% {transform: rotatex(180deg);}
+    }
+
+    @keyframes slide {
+      100% {transform: translatey(-15vmin); z-index: 2;}
+    }
+
+    @keyframes open-rev {
+      from {transform: rotatex(-180deg);}
+    }
+
+    @keyframes slide-rev {
+      from {transform: translatey(-15vmin);}
+    }
+
+    canvas {position: absolute; width: 100%; height: 100%;}
+
+    .Att {font-style: italic;}
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <div class="container" ondblclick="goToFlowers()">
+    <div class="envelope"></div>
+    <div class="card">
+      <h1 class="message">
+        Holis Neni ♥<br>
+        Esta nota solo es para recordarte que te quiero mucho<br>
+        Y que una Reina como tú no merece ser espectadora<br>
+        <span class="Att">Att. Yo Merengues :D </span><br>
+        <span class="Att">(Toca dos verces o da doble clic) </span>
+      </h1>
+    </div>
+    <div class="cover"></div>
+    <div class="lid"></div>
+    <div class="shadow"></div>
+  </div>
+
+  <script>
+    function goToFlowers() {
+      window.location.href = "Name.html"; // aquí pones la ruta de tu página con las flores
+    }
+  </script>
+</body>
+</html>

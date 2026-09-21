@@ -1,0 +1,1088 @@
+/* ========================================
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    font-family: 'Segoe UI', sans-serif;
+
+    background:
+        radial-gradient(
+            ellipse at bottom,
+            #263b37 0%,
+            #101b24 55%,
+            #080d16 100%
+        );
+}
+
+
+/* ========================================
+   ESCENARIO
+======================================== */
+
+.scene {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   RAMO
+======================================== */
+
+.bouquet {
+    position: absolute;
+
+    width: 420px;
+    height: 550px;
+
+    bottom: 75px;
+
+    transform-origin: bottom center;
+
+    animation: bouquetAppear 2s ease-out both;
+}
+
+
+/* ========================================
+   FLORES
+======================================== */
+
+.flowers {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+}
+
+.flower {
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    transform-origin: center bottom;
+
+    animation: flowerGrow 1.8s ease-out both;
+}
+
+.flower-sway {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    animation: sway 4s ease-in-out infinite alternate;
+}
+
+
+/* ========================================
+   PÉTALOS
+======================================== */
+
+.flower-head {
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    top: 0;
+    left: 0;
+
+    z-index: 3;
+
+    filter: drop-shadow(
+        0 0 10px rgba(255, 210, 50, 0.3)
+    );
+}
+
+.petal {
+    position: absolute;
+
+    width: 23px;
+    height: 43px;
+
+    left: 28px;
+    top: 1px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    background: linear-gradient(
+        to bottom,
+        #fff176,
+        #ffd600,
+        #ffb300
+    );
+
+    transform-origin: 50% 39px;
+
+    transform:
+        rotate(var(--rotation))
+        scale(0);
+
+    animation: petalBloom 1.2s ease-out forwards;
+
+    animation-delay: var(--delay);
+}
+
+.flower-center {
+    position: absolute;
+
+    width: 29px;
+    height: 29px;
+
+    top: 25px;
+    left: 25px;
+
+    z-index: 5;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            #a86b20,
+            #71410d 65%,
+            #4a2709
+        );
+
+    box-shadow:
+        inset 0 0 5px #3e240b,
+        0 0 5px rgba(255, 200, 0, 0.5);
+
+    transform: scale(0);
+
+    animation: centerAppear 0.5s ease-out forwards;
+
+    animation-delay: calc(var(--delay) + 0.5s);
+}
+
+
+/* ========================================
+   TALLOS
+======================================== */
+
+.stem {
+    position: absolute;
+
+    width: 6px;
+    height: var(--stem-height);
+
+    top: 40px;
+    left: 37px;
+
+    z-index: 1;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        to right,
+        #245c24,
+        #4e9b38,
+        #1d5421
+    );
+
+    transform-origin: top center;
+
+    transform: rotate(var(--stem-angle));
+}
+
+
+/* ========================================
+   HOJAS
+======================================== */
+
+.leaf {
+    position: absolute;
+
+    width: 24px;
+    height: 49px;
+
+    z-index: 2;
+
+    background: linear-gradient(
+        135deg,
+        #76b947,
+        #347b32 65%,
+        #205c28
+    );
+
+    border-radius:
+        0 100% 0 100%;
+
+    transform-origin: bottom center;
+}
+
+.leaf.left {
+    left: 10px;
+    top: 95px;
+
+    transform: rotate(-55deg);
+}
+
+.leaf.right {
+    left: 45px;
+    top: 130px;
+
+    transform: rotate(35deg) scaleX(-1);
+}
+
+
+/* ========================================
+   ENVOLTORIO DEL RAMO
+======================================== */
+
+.wrapper {
+    position: absolute;
+
+    width: 260px;
+    height: 240px;
+
+    bottom: 0;
+    left: 80px;
+
+    z-index: 10;
+}
+
+.wrapper-left {
+    position: absolute;
+
+    width: 170px;
+    height: 220px;
+
+    left: 0;
+    bottom: 0;
+
+    background: linear-gradient(
+        135deg,
+        #f5dfb6,
+        #d7b985
+    );
+
+    clip-path: polygon(
+        0 0,
+        100% 25%,
+        75% 100%
+    );
+}
+
+.wrapper-right {
+    position: absolute;
+
+    width: 170px;
+    height: 220px;
+
+    right: 0;
+    bottom: 0;
+
+    background: linear-gradient(
+        225deg,
+        #fff0cf,
+        #c9a875
+    );
+
+    clip-path: polygon(
+        100% 0,
+        0 25%,
+        25% 100%
+    );
+}
+
+.wrapper-center {
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    left: 45px;
+    bottom: 0;
+
+    background: linear-gradient(
+        to bottom,
+        #ead3a7,
+        #c59d67
+    );
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+}
+
+
+/* ========================================
+   LAZO
+======================================== */
+
+.ribbon {
+    position: absolute;
+
+    width: 100px;
+    height: 55px;
+
+    bottom: 85px;
+    left: 160px;
+
+    z-index: 15;
+}
+
+.ribbon-left,
+.ribbon-right {
+    position: absolute;
+
+    width: 48px;
+    height: 35px;
+
+    background: linear-gradient(
+        135deg,
+        #ffe082,
+        #e7a91b
+    );
+
+    border-radius: 50% 10% 50% 10%;
+}
+
+.ribbon-left {
+    left: 0;
+
+    transform: rotate(25deg);
+}
+
+.ribbon-right {
+    right: 0;
+
+    transform: rotate(-25deg) scaleX(-1);
+}
+
+.ribbon-center {
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+
+    top: 8px;
+    left: 37px;
+
+    z-index: 2;
+
+    border-radius: 50%;
+
+    background: #e6a51a;
+}
+
+
+/* ========================================
+   PARTÍCULAS LUMINOSAS
+======================================== */
+
+.stars {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+
+    width: var(--size);
+    height: var(--size);
+
+    border-radius: 50%;
+
+    background: #ffe77a;
+
+    box-shadow:
+        0 0 8px #ffd700,
+        0 0 15px rgba(255, 215, 0, 0.5);
+
+    opacity: 0;
+
+    animation:
+        floatStar var(--duration) linear infinite;
+
+    animation-delay: var(--delay);
+}
+
+
+/* ========================================
+   MENSAJE
+======================================== */
+
+.message {
+    position: absolute;
+
+    bottom: 25px;
+
+    width: 90%;
+
+    text-align: center;
+
+    color: #fff4c2;
+
+    opacity: 0;
+
+    animation: messageAppear 2s ease-out forwards;
+
+    animation-delay: 3s;
+}
+
+.message h1 {
+    font-size: 26px;
+
+    margin-bottom: 8px;
+
+    text-shadow:
+        0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.message p {
+    font-size: 15px;
+
+    color: #e8dfb8;
+}
+
+
+/* ========================================
+   ANIMACIONES
+======================================== */
+
+@keyframes bouquetAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(120px)
+            scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes flowerGrow {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(80px)
+            scale(0.3);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes petalBloom {
+
+    from {
+        transform:
+            rotate(var(--rotation))
+            scale(0);
+    }
+
+    to {
+        transform:
+            rotate(var(--rotation))
+            scale(1);
+    }
+}
+
+@keyframes centerAppear {
+
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes sway {
+
+    0% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes floatStar {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.5);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(-150px)
+            scale(1.2);
+    }
+}
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+/* ========================================
+   TULIPANES
+======================================== */
+
+.tulip-head {
+
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    top: 0;
+    left: 0;
+
+    z-index: 3;
+
+    transform-origin: center bottom;
+
+    animation: tulipBloom 1.5s ease-out both;
+
+    animation-delay: var(--delay);
+
+    filter: drop-shadow(
+        0 0 10px rgba(255, 210, 50, 0.3)
+    );
+
+}
+
+
+/* ========================================
+   PÉTALOS DEL TULIPÁN
+======================================== */
+
+.tulip-petal {
+
+    position: absolute;
+
+    background: linear-gradient(
+        135deg,
+        #fff59d 0%,
+        #ffeb3b 35%,
+        #ffd600 70%,
+        #f9a825 100%
+    );
+
+    box-shadow:
+        inset -3px -3px 8px rgba(200, 130, 0, 0.15);
+
+}
+
+
+/* ========================================
+   PÉTALO IZQUIERDO
+======================================== */
+
+.tulip-petal-left {
+
+    width: 37px;
+    height: 58px;
+
+    left: 8px;
+    top: 10px;
+
+    border-radius:
+        70% 30% 40% 40%;
+
+    transform:
+        rotate(-20deg);
+
+    transform-origin: bottom right;
+
+    animation:
+        tulipLeftOpen 2s ease-in-out both;
+
+    animation-delay: var(--delay);
+
+}
+
+
+/* ========================================
+   PÉTALO DERECHO
+======================================== */
+
+.tulip-petal-right {
+
+    width: 37px;
+    height: 58px;
+
+    right: 8px;
+    top: 10px;
+
+    border-radius:
+        30% 70% 40% 40%;
+
+    transform:
+        rotate(20deg);
+
+    transform-origin: bottom left;
+
+    animation:
+        tulipRightOpen 2s ease-in-out both;
+
+    animation-delay: var(--delay);
+
+}
+
+
+/* ========================================
+   PÉTALO CENTRAL
+======================================== */
+
+.tulip-petal-center {
+
+    width: 39px;
+    height: 58px;
+
+    left: 20px;
+    top: 12px;
+
+    z-index: 2;
+
+    border-radius:
+        50% 50% 35% 35%;
+
+    background: linear-gradient(
+        to right,
+        #ffd600,
+        #fff176 45%,
+        #ffca28
+    );
+
+    transform-origin: bottom center;
+
+    animation:
+        tulipCenterOpen 1.6s ease-out both;
+
+    animation-delay: var(--delay);
+
+}
+
+
+/* ========================================
+   ANIMACIÓN DE APARICIÓN
+======================================== */
+
+@keyframes tulipBloom {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.3);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ========================================
+   APERTURA DEL PÉTALO IZQUIERDO
+======================================== */
+
+@keyframes tulipLeftOpen {
+
+    0% {
+
+        transform:
+            rotate(0deg)
+            scaleY(0.2);
+
+    }
+
+    100% {
+
+        transform:
+            rotate(-20deg)
+            scaleY(1);
+
+    }
+
+}
+
+
+/* ========================================
+   APERTURA DEL PÉTALO DERECHO
+======================================== */
+
+@keyframes tulipRightOpen {
+
+    0% {
+
+        transform:
+            rotate(0deg)
+            scaleY(0.2);
+
+    }
+
+    100% {
+
+        transform:
+            rotate(20deg)
+            scaleY(1);
+
+    }
+
+}
+
+
+/* ========================================
+   APERTURA DEL PÉTALO CENTRAL
+======================================== */
+
+@keyframes tulipCenterOpen {
+
+    0% {
+
+        transform:
+            scaleY(0.1);
+
+    }
+
+    100% {
+
+        transform:
+            scaleY(1);
+
+    }
+
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .bouquet {
+        transform: scale(0.75);
+
+        bottom: 90px;
+    }
+
+    .message h1 {
+        font-size: 21px;
+    }
+
+    .message p {
+        font-size: 13px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+}
+
+/* ========================================
+   DEDICATORIA SUPERIOR
+======================================== */
+
+.dedication-top {
+
+    position: absolute;
+
+    top: 5%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    max-width: 550px;
+
+    text-align: center;
+
+    z-index: 20;
+
+    color: #fff4c2;
+
+    opacity: 0;
+
+    animation: dedicationAppear 2s ease-out forwards;
+
+    animation-delay: 2.5s;
+
+}
+
+.dedication-top h1 {
+
+    font-size: clamp(24px, 4vw, 36px);
+
+    font-weight: 600;
+
+    margin-bottom: 18px;
+
+    color: #ffe082;
+
+    text-shadow:
+        0 0 15px rgba(255, 215, 0, 0.4);
+
+}
+
+.dedication-top p {
+
+    font-size: clamp(14px, 2vw, 17px);
+
+    line-height: 1.7;
+
+    margin-bottom: 12px;
+
+    color: #f5e9c8;
+
+}
+
+
+/* ========================================
+   FIRMA INFERIOR
+======================================== */
+
+.dedication-bottom {
+
+    position: absolute;
+
+    bottom: 3%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    z-index: 20;
+
+    opacity: 0;
+
+    animation: dedicationAppear 2s ease-out forwards;
+
+    animation-delay: 4s;
+
+}
+
+.dedication-bottom p {
+
+    font-size: 15px;
+
+    color: #f5e9c8;
+
+    margin-bottom: 5px;
+
+}
+
+.dedication-bottom h2 {
+
+    font-size: 25px;
+
+    font-weight: 600;
+
+    color: #ffe082;
+
+    text-shadow:
+        0 0 15px rgba(255, 215, 0, 0.4);
+
+}
+
+
+/* ========================================
+   ANIMACIÓN DE LA DEDICATORIA
+======================================== */
+
+@keyframes dedicationAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, 20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, 0);
+
+    }
+
+}
+
+/* ========================================
+   DISTRIBUCIÓN RESPONSIVE
+======================================== */
+
+@media (max-height: 850px) {
+
+    .dedication-top {
+
+        top: 3%;
+
+    }
+
+    .dedication-top h1 {
+
+        margin-bottom: 10px;
+
+    }
+
+    .dedication-top p {
+
+        line-height: 1.4;
+
+        margin-bottom: 8px;
+
+    }
+
+    .bouquet {
+
+        bottom: 55px;
+
+        scale: 0.8;
+
+        transform-origin: bottom center;
+
+    }
+
+    .dedication-bottom {
+
+        bottom: 2%;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .dedication-top {
+
+        top: 4%;
+
+        width: 92%;
+
+    }
+
+    .dedication-top h1 {
+
+        font-size: 24px;
+
+    }
+
+    .dedication-top p {
+
+        font-size: 13px;
+
+        line-height: 1.5;
+
+    }
+
+    .bouquet {
+
+        bottom: 75px;
+
+        scale: 0.7;
+
+        transform-origin: bottom center;
+
+    }
+
+    .dedication-bottom h2 {
+
+        font-size: 22px;
+
+    }
+
+}
